@@ -1,0 +1,225 @@
+//====================================================================================================
+.header {
+	background: #FAFAFB;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	padding: 8px 0;
+	position: fixed;
+	width: 100%;
+	z-index: 5;
+
+	// .header__container
+
+	&__container {}
+
+	// .header__body
+
+	&__body {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	// .header__menu
+	&__menu {}
+
+	// .header__actions
+
+	&__actions {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		margin-right: 10px;
+
+		@media (max-width:$mobile) {
+			// display: none;
+			align-items: flex-start;
+			margin: 20px 0;
+		}
+	}
+
+	// .header__actions-phone
+
+	&__actions-phone {
+		margin-bottom: 5px;
+		font-weight: 600;
+		font-size: 18px;
+		color: #000;
+		line-height: math.div(22, 18);
+		transition: all 0.3s ease 0s;
+
+		&:hover {
+			color: $mainColor;
+		}
+	}
+
+	// .header__actions-clock
+
+	&__actions-clock {
+		font-weight: 400;
+		font-size: 12px;
+		color: $mainColor;
+		line-height: math.div(15, 12);
+	}
+
+	// .header__actions-btn
+
+	&__actions-btn {
+		display: inline-block;
+		display: flex;
+		align-items: center;
+
+		&::before {
+			margin-right: 6px;
+			display: inline-block;
+		}
+
+		@media (max-width: em(1112)) {
+			display: none;
+		}
+
+		@media (max-width: em(965)) {
+			display: inline-block;
+		}
+	}
+}
+
+.logo {
+	max-width: 239.66px;
+
+	img {
+		width: 100%;
+	}
+}
+
+.menu {
+
+	&__body {
+		@media (max-width:$tablet) {
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			top: 75px;
+			left: -100%;
+			overflow: auto;
+			background: rgba(255, 255, 255, 1);
+			padding: 40px 20px;
+			z-index: 4;
+			transition: all 0.3s ease 0s;
+
+			.menu-open & {
+				left: 0;
+			}
+
+			&::before {
+				content: '';
+				position: absolute;
+				position: fixed;
+				height: 70px;
+				width: 100%;
+				top: 0px;
+				left: 0;
+				z-index: 50;
+			}
+		}
+	}
+
+	// .menu__list
+
+	&__list {
+		display: flex;
+		margin-right: 10px;
+
+		@media (max-width:$mobile) {
+			flex-direction: column;
+		}
+	}
+
+	// .menu__item
+	&__item {
+		margin-right: 15px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (max-width:$tablet) {
+			margin-bottom: 20px;
+		}
+	}
+
+	// .menu__link
+	&__link {
+		color: #2B2B2B;
+		font-weight: 500;
+		font-size: 13px;
+		transition: color 0.3s ease 0s;
+
+		&:hover {
+			color: $mainColor;
+		}
+
+		@media (max-width:$tablet) {
+			font-size: 20px;
+		}
+	}
+}
+
+//====================================================================================================
+
+//Burger
+
+.icon-menu {
+	display: none;
+
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		cursor: pointer;
+		z-index: 5;
+
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #000;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+
+		span {
+			top: calc(50% - rem(1));
+		}
+
+		.menu-open & {
+			span {
+				width: 0;
+			}
+
+			&::before,
+			&::after {}
+
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
