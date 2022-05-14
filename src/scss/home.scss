@@ -461,17 +461,66 @@
 		}
 	}
 
-	&__stamp {}
+	&__stamp {
+		display: grid;
+		grid-template-columns: 330px 1fr 330px;
+		grid-template-rows: 400px;
+		flex-wrap: wrap;
+
+		@media (max-width:$tablet) {
+			grid-template-columns: 1fr;
+			gap: 30px;
+			grid-template-rows: auto;
+		}
+	}
 
 	&__stamp-left {}
 
-	&__stamp-left-body {}
+	&__stamp-left-body {
+		background: #FFFFFF;
+		border: 1px dashed rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+		border-radius: 3px;
+		padding: 38px 26px;
+	}
 
-	&__stamp-left-body-title {}
+	&__stamp-left-body-title {
+		font-weight: 700;
+		@include adaptiveValue("font-size", 18, 16);
+		line-height: math.div(25, 15);
+		text-align: center;
+		letter-spacing: 0.04em;
+		color: #000000;
+		@include adaptiveValue("margin-bottom", 30, 15);
+	}
 
-	&__stamp-left-body-text {}
+	&__stamp-left-body-text {
+		font-weight: 400;
+		@include adaptiveValue("font-size", 16, 14);
+		line-height: math.div(22, 16);
+		letter-spacing: 0.04em;
+		color: #000000;
+		@include adaptiveValue("margin-bottom", 30, 15);
 
-	&__stamp-center {}
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
 
-	&__stamp-right {}
+	&__stamp-center {
+		text-align: center;
+		max-width: rem(500);
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&__stamp-right {
+		background: #FFFFFF;
+		border: 1px dashed rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.25);
+		border-radius: 3px;
+		padding: 38px 26px;
+	}
 }
