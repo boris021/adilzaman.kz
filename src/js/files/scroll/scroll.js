@@ -1,7 +1,12 @@
 // Подключение функционала "Чертогов Фрилансера"
-import { isMobile, getHash } from "../functions.js";
+import {
+	isMobile,
+	getHash
+} from "../functions.js";
 // Модуль прокрутки к блоку
-import { gotoBlock } from "./gotoblock.js";
+import {
+	gotoBlock
+} from "./gotoblock.js";
 // Переменная контроля добавления события window scroll.
 let addWindowScrollEvent = false;
 //====================================================================================================================================================================================================================================================================================================
@@ -125,6 +130,7 @@ export function stickyBlock() {
 			});
 		}
 	}
+
 	function stickyBlockItem(stickyParent, stickyConfig) {
 		const stickyBlockItem = stickyParent.querySelector('[data-sticky-item]');
 		const headerHeight = stickyConfig.header;
@@ -163,6 +169,7 @@ export function stickyBlock() {
 			stickyBlockType(stickyBlockItem, stickyItemValues);
 		}
 	}
+
 	function stickyBlockType(stickyBlockItem, stickyItemValues) {
 		stickyBlockItem.style.cssText = `position:${stickyItemValues.position};bottom:${stickyItemValues.bottom};top:${stickyItemValues.top};left:${stickyItemValues.left};width:${stickyItemValues.width};`;
 	}
